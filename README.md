@@ -38,7 +38,7 @@ jq -r "$jq" androctonus-bicolor.json | dash
 Generate a page to show images
 
 ```bash
-ls *.jpg | jq -Rr 'split(".")[0] | "- [\(.)](\(.).jpg)"' > Androctonus-bicolor.md
+ls *.jpg | jq -Rr 'split(".")[0] | "- ![\(.)](\(.).jpg)"' > Androctonus-bicolor.md
 ```
 
 - [Androctonus-bicolor.md](Androctonus-bicolor.md)
