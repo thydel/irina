@@ -3,7 +3,7 @@
 ## Query API for androctonus bicolor
 
 ```bash
-curl -s -X GET -H 'Accept: application/json' 'https://api.inaturalist.org/v1/search?q=androctonus%20bicolor' | jq > androctonus-bicolor.json
+curl -s 'https://api.inaturalist.org/v1/search?q=androctonus%20bicolor' | jq > androctonus-bicolor.json
 ```
 
 - [androctonus-bicolor.json](androctonus-bicolor.json)
@@ -33,8 +33,15 @@ Use the script
 
 ```bash
 jq -r "$jq" androctonus-bicolor.json | dash
-
 ```
+
+Generate a page to show images
+
+```bash
+ls *.jpg | jq -Rr 'split(".")[0] | "- [\(.)](\(.).jpg)"' > Androctonus-bicolor.md
+```
+
+- [Androctonus-bicolor.md](Androctonus-bicolor.md)
 
 ## Find location ID for a continent
 
