@@ -53,12 +53,14 @@ And a simple `bash` func
 get-continent-id () { jq --arg continent ${1:?} '.[] | select(.name == $continent) | .id' place_type-continent.json; }
 ```
 
-To augnent the request URL with Asia `place_id`
+To augment the request URL with Asia `place_id`
 
 ```console
 thy@tde-ws:~/usr/hub/work/ext/irina$ curl -s "https://api.inaturalist.org/v1/search?q=androctonus%20bicolor&place_id=$(get-continent-id Asia)" | jq .total_results
 0
 ```
+
+But, zero match
 
 [Is there a place where I can go to get a list of iNaturalist place_ids?]:
     https://forum.inaturalist.org/t/is-there-a-place-where-i-can-go-to-get-a-list-of-inaturalist-place-ids/4016/3
