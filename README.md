@@ -50,7 +50,7 @@ curl -s https://www.inaturalist.org/places.json?place_type=continent | jq > plac
 And a simple `bash` func
 
 ```bash
-get-continent-id () { jq '.[] | select(.name == "Asia") | .id' place_type-continent.json; }
+get-continent-id () { jq --arg continent ${1:?} '.[] | select(.name == $continent) | .id' place_type-continent.json; }
 ```
 
 To augnent the request URL with Asia `place_id`
